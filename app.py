@@ -12,9 +12,9 @@ myConfig = {
     }
 }
 
-def myCommandCallback(cmd):
-    m=cmd.data['command']
-    print("Message received from IBM IoT Platform: " + m)
+def command_callback(cmd):
+    message = cmd.data['command']
+    print("Message received from IBM IoT Platform: " + message)
     
 client = wiotp.sdk.device.DeviceClient(config=myConfig, logHandlers=None)
 client.connect()
@@ -25,6 +25,6 @@ while True:
     myData={'temperature':temp, 'humidity':hum}
     client.publishEvent(eventId="status", msgFormat="json", data=myData, qos=0, onPublish=None)
     print("Published data Successfully: %s", myData)
-    client.commandCallback = myCommandCallback
+    client.commandCallback = command_callback
     time.sleep(2)
 client.disconnect()
