@@ -1,8 +1,7 @@
 import time
 import random
 import wiotp.sdk.device
-
-myConfig = { 
+myConfig = {
     "identity": {
         "orgId": "hj5fmy",
         "typeId": "NodeMCU",
