@@ -16,7 +16,6 @@ def myCommandCallback(cmd):
     m=cmd.data['command']
     print("Message received from IBM IoT Platform: " + m)
     
-
 client = wiotp.sdk.device.DeviceClient(config=myConfig, logHandlers=None)
 client.connect()
 
